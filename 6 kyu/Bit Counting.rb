@@ -7,3 +7,9 @@
 def count_bits(n)
   n.to_s(2).split('').map(&:to_i).reduce(0, :+)
 end
+
+############## Second Attempt ###############
+
+def count_bits(n)
+  n.to_s(2).count("1")
+end
