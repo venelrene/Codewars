@@ -14,3 +14,11 @@ def sort_array(source_array)
   # if even then place element else next odd element
   source_array.map { |element| element.even? ? element : odds.next }
 end
+
+
+
+######### I prefer this option from brankoculum ##########
+def sort_array(source_array)
+  odds = source_array.select { |n| n.odd? }.sort
+  source_array.map { |n| n.odd? ? odds.shift : n }
+end
