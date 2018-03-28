@@ -11,12 +11,20 @@ Example
 def duplicate_count(text)
     # iterate over each chars, ensureing there'no sorting or case issue
     # sorted just for readaility with longer strings
-    sortw = text.downcase.chars.sort   
+    sorted = text.downcase.chars.sort
     # iterate through each value counting how many time we have a unique encounter
-    b = sort.inject(Hash.new(0)) {|key, value| key[value] += 1; str}
+    b = sorted.inject(Hash.new(0)) {|key, value| key[value] += 1; str}
     b.count do |value, count|
       count > 1
     end
+end
 
+#### Refactored
 
+def duplicate_count(text)
+  # iterate over each chars creatign an array
+  arr = text.downcase.chars
+  # pulling out the uniq char and counting how many times
+  # they appear in the array more than once
+  arr.uniq.count {|n| arr.count(n) > 1}
 end
