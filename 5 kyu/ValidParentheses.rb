@@ -23,3 +23,19 @@ def valid_parentheses(string)
   end.zero? && valid
 
 end
+
+######## Refactored #####
+def valid_parentheses(string)
+  # equal balance of parentheses
+  balance = 0
+  string.each_char do |char|
+    # for every open "(" count
+    balance += 1 if char == '('
+    # there should be a close ")" count
+    balance -= 1 if char == ')'
+    # to keep the balance at 0
+    return false if balance < 0
+  end
+  # false if anything but that
+  balance == 0
+end
