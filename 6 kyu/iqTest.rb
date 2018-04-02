@@ -23,3 +23,13 @@ def iq_test(numbers)
 
 end
 
+####### Refactor 2nd attempt ###########
+
+def iq_test(numbers)
+  arr = numbers.split.map(&:to_i)
+  even = arr.select {|x| x.even? }
+  odd = arr.select {|x| x.odd?}
+
+  even.length == 1 ? arr.find_index(even.first) + 1 : arr.find_index(odd.first) + 1
+
+end
